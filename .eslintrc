@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true,
+    "node": true // "module" is not defined. 에러가 발생하면 기입
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "semi": true,
+        "useTabs": false,
+        "tabWidth": 2,
+        "trailingComma": "all",
+        "printWidth": 100,
+        "bracketSpacing": true,
+        "arrowParens": "avoid",
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}
