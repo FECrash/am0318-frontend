@@ -1,8 +1,26 @@
-import '../styles/globals.css';
-import { AppProps } from 'next/app';
+import { NextComponentType } from 'next';
+import { AppContext, AppInitialProps, AppProps } from 'next/app';
+import Head from 'next/head';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '@/styles/theme';
+import GlobalStyle from '@/styles/global';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+const YowardApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
+  Component,
+  pageProps,
+}) => {
+  return (
+    <>
+      <Head>
+        <title>Yoward</title>
+      </Head>
 
-export default MyApp;
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps}></Component>
+      </ThemeProvider>
+    </>
+  );
+};
+
+export default YowardApp;
